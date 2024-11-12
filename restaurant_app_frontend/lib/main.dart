@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
-import 'screens/First_page.dart';  // Updated import path
+import 'screens/First_page.dart'; 
 
-void main() {
-  runApp(RestaurantApp());
-}
+void main() => runApp(MyApp());
 
-class RestaurantApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Restaurant App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.teal,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.deepOrange,
       ),
-      debugShowCheckedModeBanner: false,  // Removes the debug banner
-      home: FirstPage(),  // Sets FirstPage as the initial screen
+      home: Onbording(),
     );
   }
 }

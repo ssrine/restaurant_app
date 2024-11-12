@@ -30,8 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.2.2  # Updated version constraint for http package
-    # State management package
+  flutter_svg: ^1.0.0 
+
 
 
 
@@ -55,6 +55,14 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/images/food.jpg
+    - assets/images/loogo.jpg
+    - assets/images/mapresto1.jpg
+    - assets/images/mapresto2.png
+    - assets/images/aichatboot.png
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
