@@ -1,17 +1,15 @@
 class UnbordingContent {
   final String image;
   final String title;
-  final String description; // Changed from 'discription' to 'description'
+  final String description; 
 
-  // Making the fields required
   UnbordingContent({
     required this.image,
     required this.title,
-    required this.description, // Changed here as well
+    required this.description, 
   });
 }
 
-// Updated content list with simpler, professional titles and descriptions
 List<UnbordingContent> contents = [
   UnbordingContent(
     title: 'Gourmet Quality',

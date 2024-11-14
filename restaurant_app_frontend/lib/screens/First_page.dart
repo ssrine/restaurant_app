@@ -18,7 +18,7 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 500),
-    );
+    )..forward(); 
   }
 
   @override
@@ -28,6 +28,13 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
     super.dispose();
   }
 
+  void _onPageChanged(int index) {
+    setState(() {
+      currentIndex = index;
+      _animationController.forward(from: 0);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +42,9 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFFFD5E53), // Lighter red (for the top of the screen)
-              Color(0xFFC0392B), // Mid red color
-              Color(0xFF8E2C1A), // Darker red (for the bottom of the screen)
+              Color.fromARGB(255, 236, 147, 137), 
+              Color(0xFFFD5E53),
+              Color(0xFF8E2C1A), 
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -49,12 +56,7 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
               child: PageView.builder(
                 controller: _controller,
                 itemCount: contents.length,
-                onPageChanged: (int index) {
-                  setState(() {
-                    currentIndex = index;
-                    _animationController.forward(from: 0);
-                  });
-                },
+                onPageChanged: _onPageChanged,
                 itemBuilder: (_, i) {
                   return Padding(
                     padding: const EdgeInsets.all(30),
@@ -119,8 +121,8 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.white70,
-                                  height: 1.5, // Adds line height for better readability
-                                  letterSpacing: 0.5, // Adds spacing between letters
+                                  height: 1.5,
+                                  letterSpacing: 0.5,
                                 ),
                               ),
                             ),
@@ -163,7 +165,7 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
-                      letterSpacing: 1.2, // Adds spacing for a sleek effect
+                      letterSpacing: 1.2,
                     ),
                   ),
                   onPressed: () {
@@ -184,7 +186,7 @@ class _OnbordingState extends State<Onbording> with SingleTickerProviderStateMix
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: Color(0xFF8E2C1A), // Updated darker red
+                    foregroundColor: Color(0xFF8E2C1A),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
